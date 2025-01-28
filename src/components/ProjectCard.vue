@@ -1,86 +1,108 @@
 <script setup>
-import { FaGithub } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
+import {faExternalLinkAlt} from "@fortawesome/free-solid-svg-icons";
+import {faGithub} from "@fortawesome/free-brands-svg-icons";
+
+defineProps({
+  project: Object,
+});
 </script>
 
 <template>
   <div class="project-card">
-    <img :src="project.image" alt="Project Thumbnail" class="project-image" />
-    <div class="project-details">
-      <h3 class="project-title">{{ project.title }}</h3>
-      <p class="project-description">{{ project.description }}</p>
-      <div class="project-links">
-        <a
-            v-if="project.linkOnline"
-            :href="project.linkOnline"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-link"
-        >
-          Demo →
-        </a>
-        <a
-            v-if="project.linkGithub"
-            :href="project.linkGithub"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-link"
-        >
-          <FontAwesomeIcon :icon="FaGithub" />
-        </a>
-      </div>
+    <h3 class="project-title">{{ project.title }}</h3>
+    <p class="project-description">{{ project.description }}</p>
+    <ul class="tech-stack">
+      <li v-for="(tech, index) in project.techStack" :key="index" class="tech-item">
+        {{ tech }}
+      </li>
+    </ul>
+    <div class="project-links">
+      <a
+          v-if="project.linkGithub"
+          :href="project.linkGithub"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-button"
+      >
+        <FontAwesomeIcon :icon="faGithub"/>
+        GitHub
+      </a>
+      <a
+          v-if="project.linkOnline"
+          :href="project.linkOnline"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-button"
+      >
+        <FontAwesomeIcon :icon="faExternalLinkAlt"/>
+        Live Demo
+      </a>
     </div>
   </div>
 </template>
 
 <style scoped>
 .project-card {
-  background-color: var(--third);
+  background: var(--third);
+  padding: 1.5rem;
   border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
-}
-
-.project-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.project-details {
-  padding: 1rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .project-title {
   font-size: 1.25rem;
   font-weight: bold;
   color: var(--text-primary);
+  margin-bottom: 0.5rem;
 }
 
 .project-description {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--text-secondary);
-  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tech-item {
+  background: var(--secondary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
 }
 
 .project-links {
   display: flex;
   gap: 1rem;
-  margin-top: 1rem;
 }
 
-.project-link {
-  color: var(--secondary);
-  font-weight: bold;
+.link-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--secondary);
+  color: white;
+  border-radius: 8px;
   text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
 }
 
-.project-link:hover {
-  color: var(--primary);
+.link-button:hover {
+  background: var(--primary);
 }
 </style>

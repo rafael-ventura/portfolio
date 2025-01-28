@@ -1,34 +1,12 @@
 <script setup>
-import ProjectCard from "@/components/cards/ProjectCard.vue";
-import SectionHeader from "@/components/ui/SectionHeader.vue";
-
-// Dados de projetos
-const projects = [
-  {
-    title: "SkyCast",
-    image: "/assets/images/cast.png",
-    linkGithub: "https://github.com/bjclayton/SkyCast",
-    linkOnline: "https://sky-cast-taupe.vercel.app/",
-    description:
-        "SkyCast is a web app that provides real-time weather conditions and forecasts for selected cities.",
-    techStack: ["React", "Tailwind CSS", "Firebase", "Weather API"],
-  },
-  {
-    title: "ORA-API",
-    image: "/assets/images/ora.png",
-    linkGithub: null,
-    linkOnline: "https://ora-api-documentation.vercel.app/",
-    description:
-        "A RESTful API that provides access to a wide range of Bible-related information, including versions, books, verses, and search functionality.",
-    techStack: ["JavaScript", "Express", "Mongoose"],
-  },
-  // Adicione mais projetos conforme necessário
-];
+import ProjectCard from "@/components/ProjectCard.vue";
+import SectionHeader from "@/components/SectionHeader.vue";
+import { projects } from "@/utils/data.js";
 </script>
 
 <template>
   <section class="projects-section">
-    <SectionHeader title="Projects." subtitle="Most recent works" />
+    <SectionHeader title="Projetos" subtitle="Meus trabalhos mais recentes" />
     <div class="projects-grid">
       <ProjectCard
           v-for="(project, index) in projects"
