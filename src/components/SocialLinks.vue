@@ -1,41 +1,77 @@
 <script setup>
-const socialLinks = [
-  { name: "LinkedIn", url: "https://linkedin.com/in/rafael", icon: "fa-linkedin" },
-  { name: "GitHub", url: "https://github.com/rafael", icon: "fa-github" },
-  { name: "Twitter", url: "https://twitter.com/rafael", icon: "fa-twitter" },
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import {
+  faLinkedin,
+  faGithub,
+} from "@fortawesome/free-brands-svg-icons"; // Ícones de redes sociais
+import { faFilePdf } from "@fortawesome/free-solid-svg-icons"; // Ícone para o currículo
+
+const socialMediaLinks = [
+  {
+    url: "https://www.linkedin.com/in/rafael-ventura", // Altere para seu LinkedIn
+    icon: faLinkedin,
+    label: "LinkedIn",
+  },
+  {
+    url: "https://github.com/rafael-ventura", // Altere para seu GitHub
+    icon: faGithub,
+    label: "GitHub",
+  },
+  {
+    url: "../assets/rafael-ventura-cv.pdf", // Altere para o link do seu currículo
+    icon: faFilePdf,
+    label: "Currículo",
+  },
 ];
 </script>
 
 <template>
   <div class="social-links">
-    <a
-        v-for="(link, index) in socialLinks"
+    <div
+        v-for="(link, index) in socialMediaLinks"
         :key="index"
-        :href="link.url"
-        target="_blank"
-        rel="noopener noreferrer"
         class="social-link"
     >
-      <i :class="`fab ${link.icon}`"></i>
-    </a>
+      <a
+          :href="link.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="icon-wrapper"
+          :aria-label="link.label"
+      >
+        <FontAwesomeIcon :icon="link.icon" class="icon" />
+      </a>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .social-links {
   display: flex;
+  gap: 16px;
   justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  align-items: center;
+  margin-top: 1rem;
 }
 
-.social-link {
-  color: var(--text-primary);
+.social-link .icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: transform 0.2s, background-color 0.3s;
+  color: white;
+}
+
+.social-link .icon-wrapper:hover {
+  transform: scale(1.1);
+  background-color: var(--primary);
+}
+
+.icon {
   font-size: 1.5rem;
-  transition: color 0.3s;
-}
-
-.social-link:hover {
-  color: var(--secondary);
 }
 </style>

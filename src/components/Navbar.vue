@@ -1,55 +1,65 @@
 <template>
-  <nav class="navbar">
+  <header class="navbar">
     <div class="container">
-      <h1 class="logo">Rafael Ventura</h1>
-      <ul class="nav-links">
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/about">Sobre</router-link></li>
-        <li><router-link to="/projects">Projetos</router-link></li>
-        <li><router-link to="/contact">Contato</router-link></li>
-      </ul>
-    </div>
-  </nav>
-</template>
+      <!-- Logo -->
+      <div class="logo">
+        <a href="#home">RV</a>
+      </div>
 
-<script setup>
-</script>
+      <!-- Links -->
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</template>
 
 <style scoped>
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--primary);
   padding: 1rem 2rem;
-  color: var(--text-primary);
+  background-color: #0f172a;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
 }
 
-.navbar .logo {
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo a {
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--secondary);
+  color: #fff;
+  text-decoration: none;
 }
 
-.navbar .nav-links {
-  list-style: none;
+nav ul {
   display: flex;
   gap: 1.5rem;
-  padding: 0;
-  margin: 0;
+  list-style: none;
 }
 
-.navbar .nav-links li {
-  font-size: 1rem;
-}
-
-.navbar .nav-links a {
-  color: var(--text-primary);
+nav ul li a {
+  color: #fff;
   text-decoration: none;
-  transition: color 0.3s ease;
+  font-size: 1rem;
+  transition: color 0.3s;
 }
 
-.navbar .nav-links a:hover {
-  color: var(--secondary);
+nav ul li a:hover {
+  color: #6366f1;
 }
 </style>
