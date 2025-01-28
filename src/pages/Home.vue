@@ -21,12 +21,15 @@ import Contact from "@/pages/Contact.vue";
 
 <style scoped>
 .home {
-  background: linear-gradient(135deg, #0f172a, #1e293b);
+  background-color: var(--primary); /* Cor consistente */
   color: var(--text-primary);
   overflow: hidden;
+  width: 100%; /* Largura total */
+  max-width: 1200px; /* Mesma largura das seções */
+  margin: 0 auto; /* Centraliza a Home */
 }
 
 .sections {
-  margin-top: -1rem;
+  margin-top: 0;
 }
 </style>

@@ -4,6 +4,42 @@ export const headlines = [
     "I create, build, and innovate software solutions.",
 ];
 
+// Principais habilidades organizadas por categorias
+export const skills = [
+    // Back-end
+    {name: ".NET (C#, EF, ASP.NET)", color: "#0078D7"},
+    {name: "TypeScript", color: "#0078D7"},
+    {name: "Node.js", color: "#0078D7"},
+    {name: "Express", color: "#0078D7"},
+    {name: "Docker", color: "#7acf58"}, // Verde
+    {name: "Azure", color: "#7acf58"}, // Verde
+    {name: "AWS", color: "#7acf58"}, // Verde
+    {name: "SQL Server", color: "#5d4087"}, // Roxo
+    {name: "PostgreSQL", color: "#5d4087"}, // Roxo
+    {name: "MongoDB", color: "#5d4087"}, // Roxo
+    {name: "SQLite", color: "#5d4087"}, // Roxo
+    {name: "Redis", color: "#4682B4"}, // Azul Escuro
+    {name: "RabbitMQ", color: "#4682B4"}, // Azul Escuro
+    {name: "Clean Architecture", color: "#F7DF1E"}, // Amarelo
+    {name: "CQRS", color: "#F7DF1E"}, // Amarelo
+    {name: "Repository Pattern", color: "#F7DF1E"}, // Amarelo
+    {name: "API Gateway", color: "#F7DF1E"},
+    {name: "State Management", color: "#F7DF1E"},
+    {name: "Dependency Injection", color: "#F7DF1E"},
+    {name: "Angular", color: "#DD1B16"},
+    {name: "Vue.js", color: "#DD1B16"},
+    {name: "xUnit", color: "#800080"}, // Roxo
+    {name: "NUnit", color: "#800080"}, // Roxo
+    {name: "Jest", color: "#800080"}, // Roxo
+    {name: "SpecFlow", color: "#9370DB"}, // Roxo Claro
+    {name: "Jasmine", color: "#9370DB"}, // Roxo Claro
+
+    {name: "IBM MQ", color: "#4682B4"}, // Azul
+    {name: "MassTransit", color: "#4682B4"}, // Azul
+    {name: "CI/CD", color: "#00CED1"}, // Azul Claro
+    {name: "Agile (Scrum, Kanban)", color: "#FF6347"}, // Laranja Escuro
+];
+
 export const projects = [
     {
         title: "Cumes Brasil",
@@ -50,10 +86,4 @@ export const projects = [
             "Sistema de gerenciamento de fichas cadastrais para funcionários temporários.",
         techStack: ["React", "Node.js", "PostgreSQL"],
     },
-];
-
-export const technologies = [
-    { name: "JavaScript", color: "#F7DF1E" },
-    { name: "Vue.js", color: "#4FC08D" },
-    { name: "PrimeVue", color: "#6366F1" },
 ];

@@ -1,6 +1,5 @@
 <script setup>
 import TypingAnimation from "@/components/ui/AnimatedTyping.vue";
-import SocialLinks from "@/components/SocialLinks.vue";
 
 const subtitle = "I'm Rafael";
 const description = "Software Engineer and all the cool stuff";
@@ -8,7 +7,23 @@ const description = "Software Engineer and all the cool stuff";
 
 <template>
   <div class="hero-section">
+    <!-- Camada de fundo com efeito vidro -->
+    <div class="glass-background"></div>
+
+    <!-- Conteúdo principal -->
     <div class="content">
+      <!-- Texto principal -->
+      <div class="text-section">
+        <TypingAnimation text="Hello World." :cursorBlink="true" />
+        <h2 class="subtitle">{{ subtitle }}</h2>
+        <p class="description">{{ description }}</p>
+
+        <!-- Botão para explorar -->
+        <button class="cta-button" @click="$refs.about.scrollIntoView({ behavior: 'smooth' })">
+          Explore More
+        </button>
+      </div>
+
       <!-- Foto de perfil -->
       <div class="photo-section">
         <img
@@ -17,34 +32,32 @@ const description = "Software Engineer and all the cool stuff";
             class="profile-picture"
         />
       </div>
-
-      <!-- Texto principal -->
-      <div class="text-section">
-        <TypingAnimation text="Hello World." :cursorBlink="true" />
-        <h2 class="subtitle">{{ subtitle }}</h2>
-        <p class="description">{{ description }}</p>
-
-        <!-- Redes Sociais -->
-        <SocialLinks />
-
-        <!-- Botão para explorar -->
-        <button class="cta-button" @click="$refs.about.scrollIntoView({ behavior: 'smooth' })">
-          Explore More
-        </button>
-      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
 .hero-section {
+  position: relative;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-  padding: 2rem;
+  justify-content: center;
   min-height: 100vh;
+  padding: 3rem 1rem;
+  overflow: hidden;
+}
+
+/* Fundo com efeito vidro */
+.glass-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.7); /* Fundo escuro com leve transparência */
+  backdrop-filter: blur(8px); /* Efeito de vidro */
+  z-index: -1; /* Atrás do conteúdo principal */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borda sutil */
 }
 
 .content {
@@ -52,13 +65,15 @@ const description = "Software Engineer and all the cool stuff";
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1200px; /* Largura consistente */
+  margin: 0 auto; /* Centraliza o conteúdo */
   gap: 2rem;
 }
 
 @media (max-width: 768px) {
   .content {
     flex-direction: column;
+    text-align: center;
   }
 }
 
@@ -70,8 +85,8 @@ const description = "Software Engineer and all the cool stuff";
 }
 
 .profile-picture {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   border: 4px solid #6366f1;
   object-fit: cover;
@@ -80,7 +95,7 @@ const description = "Software Engineer and all the cool stuff";
 
 /* Texto */
 .text-section {
-  flex: 2;
+  flex: 1.5;
   text-align: left;
 }
 
@@ -102,7 +117,7 @@ const description = "Software Engineer and all the cool stuff";
   background: var(--secondary);
   color: var(--text-primary);
   border: none;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
