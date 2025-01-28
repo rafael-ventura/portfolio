@@ -1,24 +1,20 @@
 <script setup>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import {
-  faLinkedin,
-  faGithub,
-} from "@fortawesome/free-brands-svg-icons"; // Ícones de redes sociais
-import { faFilePdf } from "@fortawesome/free-solid-svg-icons"; // Ícone para o currículo
+import { faLinkedin, faGithub, faFilePdf } from "@fortawesome/free-solid-svg-icons";
 
 const socialMediaLinks = [
   {
-    url: "https://www.linkedin.com/in/rafael-ventura", // Altere para seu LinkedIn
+    url: "https://www.linkedin.com/in/rafael-ventura",
     icon: faLinkedin,
     label: "LinkedIn",
   },
   {
-    url: "https://github.com/rafael-ventura", // Altere para seu GitHub
+    url: "https://github.com/rafael-ventura",
     icon: faGithub,
     label: "GitHub",
   },
   {
-    url: "../assets/rafael-ventura-cv.pdf", // Altere para o link do seu currículo
+    url: "/assets/rafael-ventura-cv.pdf",
     icon: faFilePdf,
     label: "Currículo",
   },
@@ -27,51 +23,35 @@ const socialMediaLinks = [
 
 <template>
   <div class="social-links">
-    <div
+    <a
         v-for="(link, index) in socialMediaLinks"
         :key="index"
-        class="social-link"
+        :href="link.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-icon"
     >
-      <a
-          :href="link.url"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="icon-wrapper"
-          :aria-label="link.label"
-      >
-        <FontAwesomeIcon :icon="link.icon" class="icon" />
-      </a>
-    </div>
+      <FontAwesomeIcon :icon="link.icon" class="icon" />
+    </a>
   </div>
 </template>
 
 <style scoped>
 .social-links {
   display: flex;
-  gap: 16px;
   justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
+  gap: 1rem;
+  margin: 2rem 0;
 }
 
-.social-link .icon-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--secondary);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  transition: transform 0.2s, background-color 0.3s;
-  color: white;
-}
-
-.social-link .icon-wrapper:hover {
-  transform: scale(1.1);
-  background-color: var(--primary);
-}
-
-.icon {
+.social-icon {
+  color: var(--text-primary);
   font-size: 1.5rem;
+  transition: transform 0.3s;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+  color: var(--secondary);
 }
 </style>

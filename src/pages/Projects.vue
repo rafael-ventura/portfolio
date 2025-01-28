@@ -1,57 +1,55 @@
+<script setup>
+import ProjectCard from "@/components/cards/ProjectCard.vue";
+import SectionHeader from "@/components/ui/SectionHeader.vue";
+
+// Dados de projetos
+const projects = [
+  {
+    title: "SkyCast",
+    image: "/assets/images/cast.png",
+    linkGithub: "https://github.com/bjclayton/SkyCast",
+    linkOnline: "https://sky-cast-taupe.vercel.app/",
+    description:
+        "SkyCast is a web app that provides real-time weather conditions and forecasts for selected cities.",
+    techStack: ["React", "Tailwind CSS", "Firebase", "Weather API"],
+  },
+  {
+    title: "ORA-API",
+    image: "/assets/images/ora.png",
+    linkGithub: null,
+    linkOnline: "https://ora-api-documentation.vercel.app/",
+    description:
+        "A RESTful API that provides access to a wide range of Bible-related information, including versions, books, verses, and search functionality.",
+    techStack: ["JavaScript", "Express", "Mongoose"],
+  },
+  // Adicione mais projetos conforme necessário
+];
+</script>
+
 <template>
-  <section class="projects" id="projects">
-    <h2>Projetos</h2>
-    <div class="project-list">
+  <section class="projects-section">
+    <SectionHeader title="Projects." subtitle="Most recent works" />
+    <div class="projects-grid">
       <ProjectCard
           v-for="(project, index) in projects"
           :key="index"
-          :title="project.title"
-          :description="project.description"
-          :image="project.image"
-          :github="project.github"
-          :demo="project.demo"
+          :project="project"
       />
     </div>
   </section>
 </template>
 
-<script setup>
-import ProjectCard from "@/components/ProjectCard.vue";
-
-const projects = [
-  {
-    title: "SkyCast",
-    description: "Web app de previsão do tempo em tempo real.",
-    image: "/images/skycast.png",
-    github: "https://github.com/user/skycast",
-    demo: "https://skycast-demo.com",
-  },
-  {
-    title: "ChatGenius",
-    description: "Plataforma de conversa usando modelos de linguagem avançados.",
-    image: "/images/chatgenius.png",
-    github: "https://github.com/user/chatgenius",
-    demo: "https://chatgenius.com",
-  },
-];
-</script>
-
 <style scoped>
-.projects {
-  text-align: center;
-  padding: 2rem;
-  background-color: var(--secondary);
-  color: var(--text-primary);
+.projects-section {
+  padding: 2rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.projects h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.project-list {
+.projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
+  padding: 1rem;
 }
 </style>
