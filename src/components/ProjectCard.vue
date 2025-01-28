@@ -1,7 +1,7 @@
 <script setup>
-import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
-import {faExternalLinkAlt} from "@fortawesome/free-solid-svg-icons";
-import {faGithub} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 defineProps({
   project: Object,
@@ -10,6 +10,7 @@ defineProps({
 
 <template>
   <div class="project-card">
+    <img :src="project.image" :alt="project.title" class="project-image" />
     <h3 class="project-title">{{ project.title }}</h3>
     <p class="project-description">{{ project.description }}</p>
     <ul class="tech-stack">
@@ -25,8 +26,7 @@ defineProps({
           rel="noopener noreferrer"
           class="link-button"
       >
-        <FontAwesomeIcon :icon="faGithub"/>
-        GitHub
+        <FontAwesomeIcon :icon="faGithub" /> GitHub
       </a>
       <a
           v-if="project.linkOnline"
@@ -35,8 +35,7 @@ defineProps({
           rel="noopener noreferrer"
           class="link-button"
       >
-        <FontAwesomeIcon :icon="faExternalLinkAlt"/>
-        Live Demo
+        <FontAwesomeIcon :icon="faExternalLinkAlt" /> Live Demo
       </a>
     </div>
   </div>
@@ -49,11 +48,23 @@ defineProps({
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }
 
 .project-title {
