@@ -6,8 +6,8 @@ import { skills } from "@/utils/data.js";
 </script>
 
 <template>
-  <section class="about-section">
-    <SectionHeader title="Sobre Mim" subtitle="." />
+  <section id="about" class="about-section">
+    <SectionHeader title="About" subtitle="." />
     <p class="about-description">
       Desenvolvedor Full Stack com mais de 5 anos de experiência em tecnologias como .NET,
       JavaScript e Angular. Apaixonado por resolver problemas complexos, liderar equipes
@@ -27,10 +27,11 @@ import { skills } from "@/utils/data.js";
 
 <style scoped>
 .about-section {
-  padding: 2rem 1rem;
+  padding: 6rem 1rem 2rem 1rem;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
+  min-height: 100vh;
 }
 
 .about-description {

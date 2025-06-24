@@ -27,6 +27,7 @@ import Contact from "@/pages/Contact.vue";
   width: 100%; /* Largura total */
   max-width: 1200px; /* Mesma largura das seções */
   margin: 0 auto; /* Centraliza a Home */
+  padding-top: 80px; /* Compensa a navbar fixa */
 }
 
 .sections {

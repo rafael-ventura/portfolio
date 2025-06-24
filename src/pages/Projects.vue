@@ -19,9 +19,10 @@ import { projects } from "@/utils/data.js";
 
 <style scoped>
 .projects-section {
-  padding: 2rem 0;
+  padding: 6rem 0 2rem 0;
   max-width: 1200px;
   margin: 0 auto;
+  min-height: 100vh;
 }
 
 .projects-grid {

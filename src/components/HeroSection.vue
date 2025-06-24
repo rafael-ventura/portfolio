@@ -1,8 +1,16 @@
 <script setup>
 import TypingAnimation from "@/components/ui/AnimatedTyping.vue";
+import { useRouter } from 'vue-router';
 
 const subtitle = "I'm Rafael";
 const description = "Software Engineer and all the cool stuff";
+
+const router = useRouter();
+
+const navigateToAbout = () => {
+  // Sempre navega para a página About
+  router.push('/about');
+};
 </script>
 
 <template>
@@ -19,7 +27,7 @@ const description = "Software Engineer and all the cool stuff";
         <p class="description">{{ description }}</p>
 
         <!-- Botão para explorar -->
-        <button class="cta-button" @click="$refs.about.scrollIntoView({ behavior: 'smooth' })">
+        <button class="cta-button" @click="navigateToAbout">
           Explore More
         </button>
       </div>

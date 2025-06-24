@@ -50,9 +50,10 @@ const links = [
 <style scoped>
 .contact {
   text-align: center;
-  padding: 2rem;
+  padding: 6rem 2rem 2rem 2rem;
   background-color: var(--primary);
   color: var(--text-primary);
+  min-height: 100vh;
 }
 
 .section-title {

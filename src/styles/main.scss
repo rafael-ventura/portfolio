@@ -1,10 +1,14 @@
 /* Importação de fontes */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;700;900&family=Lato:wght@100;300;400;700&display=swap');
 
+/* Importar variáveis globais */
+@import './global.scss';
+
 /* Variáveis globais */
 :root {
   --primary: #0f172a;
   --secondary: #6366f1;
+  --tertiary: #ff66cc;
   --third: #21293b;
   --text-primary: #f1f5f9;
   --text-secondary: #808ea3;
