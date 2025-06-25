@@ -1,15 +1,20 @@
 <script setup>
-import TypingAnimation from "@/components/ui/AnimatedTyping.vue";
-import { useRouter } from 'vue-router';
+import TypingAnimation from "@/components/Home/AnimatedTyping.vue";
 
-const subtitle = "I'm Rafael";
-const description = "Software Engineer and all the cool stuff";
-
-const router = useRouter();
+const subtitle = "Sou o Rafael Siqueira";
+const description = "Engenheiro de Software e Desenvolvedor Full Stack Pleno";
 
 const navigateToAbout = () => {
-  // Sempre navega para a página About
-  router.push('/about');
+  const aboutSection = document.getElementById('about');
+  if (aboutSection) {
+    const navbarHeight = 80; // Altura da navbar fixa
+    const elementPosition = aboutSection.offsetTop - navbarHeight;
+    
+    window.scrollTo({
+      top: elementPosition,
+      behavior: 'smooth'
+    });
+  }
 };
 </script>
 
@@ -28,7 +33,7 @@ const navigateToAbout = () => {
 
         <!-- Botão para explorar -->
         <button class="cta-button" @click="navigateToAbout">
-          Explore More
+          Explorar Mais
         </button>
       </div>
 
@@ -96,7 +101,7 @@ const navigateToAbout = () => {
   width: 220px;
   height: 220px;
   border-radius: 50%;
-  border: 4px solid #6366f1;
+  border: 4px solid var(--tertiary);
   object-fit: cover;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
@@ -108,25 +113,27 @@ const navigateToAbout = () => {
 }
 
 .subtitle {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-family: "Lato", sans-serif;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  font-weight: 600;
 }
 
 .description {
-  font-size: 1.25rem;
-  margin-top: 0.5rem;
+  font-size: 1.5rem;
+  margin-top: 1rem;
   color: var(--text-secondary);
+  line-height: 1.4;
 }
 
 .cta-button {
-  margin-top: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  background: var(--secondary);
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background: var(--tertiary);
   color: var(--text-primary);
   border: none;
   border-radius: var(--border-radius);
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s;
@@ -135,5 +142,6 @@ const navigateToAbout = () => {
 .cta-button:hover {
   background: var(--primary);
   color: var(--secondary);
+  border: 1px solid var(--secondary);
 }
 </style>

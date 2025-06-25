@@ -13,8 +13,8 @@
 </template>
 
 <script setup>
-import Navbar from "@/components/Navbar.vue";
-import Footer from "@/components/Footer.vue";
+import Navbar from "@/components/ui/Navbar.vue";
+import Footer from "@/components/ui/Footer.vue";
 import Background from "@/components/ui/BackgroundParticles.vue";
 </script>
 
@@ -23,13 +23,15 @@ import Background from "@/components/ui/BackgroundParticles.vue";
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  position: relative; /* Para que os filhos respeitem a hierarquia do background */
+  position: relative;
+  width: 100%;
 }
 
 main {
   flex: 1;
-  position: relative; /* Garante que o conteúdo fique acima do fundo animado */
+  position: relative;
   z-index: 1;
+  width: 100%;
 }
 
 .Background {
@@ -38,6 +40,6 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0; /* O fundo animado deve ficar atrás de tudo */
+  z-index: 0;
 }
 </style>

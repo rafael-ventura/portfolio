@@ -48,7 +48,7 @@ onUnmounted(() => clearInterval(typingInterval));
 .typing-animation {
   display: inline-block;
   font-family: "Raleway", sans-serif;
-  font-size: 3rem;
+  font-size: 6rem;
   font-weight: bold;
   color: var(--secondary);
 }

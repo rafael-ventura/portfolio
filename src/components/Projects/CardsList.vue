@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import ProjectCard from "./ProjectCard.vue";
+import ProjectCard from "./Projects/ProjectCard.vue";
 
 const projects = [
   { id: 1, title: "Projeto 1", description: "Descrição do projeto 1", link: "#" },

@@ -1,6 +1,6 @@
 <script setup>
-import ProjectCard from "@/components/ProjectCard.vue";
-import SectionHeader from "@/components/SectionHeader.vue";
+import ProjectCard from "@/components/Projects/ProjectCard.vue";
+import SectionHeader from "@/components/ui/SectionHeader.vue";
 import { projects } from "@/utils/data.js";
 </script>
 
