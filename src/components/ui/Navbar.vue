@@ -3,7 +3,7 @@
     <div class="container">
       <!-- Logo -->
       <div class="logo">
-        <a href="#home" @click.prevent="scrollToSection('home')">RV</a>
+        <a href="#home" @click.prevent="scrollToSection('home')">RS</a>
       </div>
 
       <!-- Links -->
@@ -25,6 +25,15 @@
               :class="{ 'active': activeSection === 'about' }"
             >
               Sobre
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#experience" 
+              @click.prevent="scrollToSection('experience')"
+              :class="{ 'active': activeSection === 'experience' }"
+            >
+              Experiência
             </a>
           </li>
           <li>
@@ -70,7 +79,7 @@ const scrollToSection = (sectionId) => {
 };
 
 const updateActiveSection = () => {
-  const sections = ['home', 'about', 'projects', 'contact'];
+  const sections = ['home', 'about', 'experience', 'projects', 'contact'];
   const scrollPosition = window.scrollY + 100; // Offset para considerar a navbar
 
   for (const section of sections) {
